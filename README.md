@@ -39,7 +39,7 @@ To install and run this application:
 3. Once the dependencies have been installed, start the server by running
 
     ```bash
-    node server.js
+    npm start
     ```
 
 The server will start and listen on port 3000. You can access it at <http://localhost:3000>.
