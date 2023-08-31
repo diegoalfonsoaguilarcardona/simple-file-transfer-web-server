@@ -13,7 +13,8 @@
                         const a = document.createElement('a');
                         a.href = file;
                         a.innerText = file;
-                        a.download = true;
+                        // Set the download attribute to the file name
+                        a.download = file.split('/').pop();
                         li.appendChild(a);
                         fileList.appendChild(li);
                     });
