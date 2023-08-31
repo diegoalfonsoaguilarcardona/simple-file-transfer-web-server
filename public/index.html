@@ -2,6 +2,25 @@
 <html>
 <head>
     <title>File Upload</title>
+    <script>
+        window.onload = function() {
+            fetch('/listfiles')
+                .then(response => response.json())
+                .then(files => {
+                    const fileList = document.getElementById('fileList');
+                    files.forEach(file => {
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.href = file;
+                        a.innerText = file;
+                        a.download = true;
+                        li.appendChild(a);
+                        fileList.appendChild(li);
+                    });
+                })
+                .catch(console.error);
+        };
+    </script>
 </head>
 <body>
     <h1>Upload File</h1>
@@ -9,5 +28,8 @@
         <input type="file" name="file">
         <button type="submit">Upload</button>
     </form>
+
+    <h2>Available Files</h2>
+    <ul id="fileList"></ul>
 </body>
 </html>
